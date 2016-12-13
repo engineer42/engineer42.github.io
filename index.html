@@ -1,37 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script src="https://vk.com/js/api/xd_connection.js?2" type="text/javascript"></script>
+
 </head>
 <body>
 
 <p>v 0.02</p>
 <input id="textbox_id" type="text" size="40">
 <button onclick="clickFunction()">клац</button>
-<script type="text/javascript"> 
-  VK.init(function() { 
-     // API initialization succeeded 
-     // Your code here 
-  }, function() { 
-     // API initialization failed 
-     // Can reload page here 
-}, '5.60'); 
-</script>
+
 
 <script>
 	
-VK.api("friends.get", {fields: "photo_medium"}, function(data){
-console.log(data);
-});
+
 
 
 function clickFunction(){
 	var uid = document.getElementById('textbox_id').value;
 	console.log('click',uid);
 
-	VK.api("docs.getById", {docs: uid}, function(data){
-	console.log(data);
-	});
+	var request = new XMLHttpRequest();
+	request.onreadystatechange = function() {
+	    if (request.readyState === 4) {
+	        if (request.status === 200) {
+	            //document.body.className = 'ok';
+	            console.log('ok',request.responseText);
+	        } else {
+	            //document.body.className = 'error';
+	            console.log('notk',request.responseText);
+	        }
+	    }
+	};
+	request.open("GET", uid , true);
+	request.send(null)
 
 }
 
