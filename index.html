@@ -6,7 +6,7 @@
 <body>
 <h1>Hello World</h1>
 <p>I'm hosted with GitHub Pages ggggggg.</p>
-<input type="text" size="40">
+<input id="textbox_id" type="text" size="40">
 <button>клац</button>
 <script type="text/javascript"> 
   VK.init(function() { 
@@ -23,6 +23,12 @@
 VK.api("friends.get", {fields: "photo_medium"}, function(data){
 console.log(data);
 });
+
+
+function click(){
+	var uid = document.getElementById('textbox_id').value;
+	console.log('click',uid);
+}
 
 </script>
 </body>
