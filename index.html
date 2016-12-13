@@ -5,7 +5,7 @@
 </head>
 <body>
 
-<p>v 0.01</p>
+<p>v 0.02</p>
 <input id="textbox_id" type="text" size="40">
 <button onclick="clickFunction()">клац</button>
 <script type="text/javascript"> 
@@ -29,7 +29,7 @@ function clickFunction(){
 	var uid = document.getElementById('textbox_id').value;
 	console.log('click',uid);
 
-	VK.api("docs.get", {docs: uid}, function(data){
+	VK.api("docs.getById", {docs: uid}, function(data){
 	console.log(data);
 	});
 
