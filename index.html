@@ -4,10 +4,10 @@
 <script src="https://vk.com/js/api/xd_connection.js?2" type="text/javascript"></script>
 </head>
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages ggggggg.</p>
+
+<p>v 0.01</p>
 <input id="textbox_id" type="text" size="40">
-<button>клац</button>
+<button onclick="clickFunction()">клац</button>
 <script type="text/javascript"> 
   VK.init(function() { 
      // API initialization succeeded 
@@ -25,9 +25,14 @@ console.log(data);
 });
 
 
-function click(){
+function clickFunction(){
 	var uid = document.getElementById('textbox_id').value;
 	console.log('click',uid);
+
+	VK.api("docs.get", {docs: uid}, function(data){
+	console.log(data);
+	});
+
 }
 
 </script>
